@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#background {
+    position: fixed; /* Mantener la imagen de fondo fija */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(https://imagizer.imageshack.com/img924/5064/cww7Xl.jpg); /* Asegúrate de que esta ruta sea válida */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1; /* Asegura que esté detrás de todos los demás elementos */
+}
+
+      
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+      
+        .character {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+        }
+        
+        .carousel-inner img {
+            max-width: 100%; /* Hace que las imágenes no se extiendan más allá del ancho del carrusel */
+            height: auto; /* Mantiene la proporción de las imágenes */
+        }
+        .containercarousel {
+            position: absolute;
+            bottom: 20px; /* Ajusta la distancia desde la parte inferior */
+            left: 50%;
+            transform: translateX(-50%); /* Centra el carrusel horizontalmente */
+            width: 90%; /* Ajusta el ancho según lo que prefieras (por ejemplo, 80% de la pantalla) */
+            max-width: 1200px; /* Un máximo para limitar el tamaño si es necesario */
+        
+            padding: 20px; /* Espacio interno */
+            border-radius: 1px; /* Bordes redondeados opcionales */
+        }
+
+
+        .controles-musica{
+            display: flex;
+            float: left;
+            margin-left: 2%;
+            padding: 10px;
+        }
+
+        .button1:hover{
+            transform: scale(110%);
+            transition: 0.5s;
+        }
+
+        .button2:hover{
+            transform: scale(110%);
+            transition: 0.5s;
+        }
+        

@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+}
+
+#background {
+    position: fixed; /* Mantener la imagen de fondo fija */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://imagizer.imageshack.com/img924/399/EP4x8f.jpg); /* Asegúrate de que esta ruta sea válida */
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1; /* Asegura que esté detrás de todos los demás elementos */
+}
+
+.contenedor-boton{
+    display: grid;
+    place-items: center;
+    gap: 20px;
+    
+}
+
+.boton{
+    font-size: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 700;
+    background-color: black;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+.boton:hover{
+    background-color: brown;
+}
+
+.creditos{
+    font-size: 80px;
+    padding: 15px 50px 15px 50px;
+    font-weight: 700;
+}
+
+.creditos:hover{
+    background-color: brown;
+    cursor: pointer;
+}
+
+

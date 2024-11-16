@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novela Gráfica</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="espanolfonal.css">
+</head>
+<body>
+    <div id="background"></div>
+
+    <div class="controles-musica">
+
+    <!--Control de valores de volume-->
+    <label for="volumeControl"></label>
+    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" oninput="adjustVolume(this.value)">
+
+    <!-- Botón para pausar o reproducir el audio -->
+    <button onclick="toggleAudio()" id="audioButton">⏸️ Pausar</button>
+
+    <audio id="miAudio" src="/Musica Ambiental de Terror Sin Copyright.mp3" autoplay loop></audio>
+    </div>
+    
+    <!-- Contenido de la página y Carrusel -->
+    <div class="containercarousel">
+        <div id="myCarousel" class="carousel slide" data-interval="false">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="https://imagizer.imageshack.com/img923/7424/xx8dgY.jpg" style="width:130%;">
+                </div>
+                <div class="item">
+                    <img src="https://imagizer.imageshack.com/img923/5342/xgAnz3.jpg" style="width:130%;">
+                </div>
+                <div class="item">
+                    <img src="https://imagizer.imageshack.com/img923/5251/5VfY5Y.jpg" style="width:130%;">
+                </div>
+                
+                
+            </div>
+            
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Botones que aparecerán después de ciertos clics -->
+    <div id="buttonsContainer" style="display: none; position: absolute; bottom: 20px; width: 100%; text-align: center;">
+        <button style="font-size: 3.5em; font-weight: 600; padding: 10px 20px; background-color: #000000bd; color: rgb(194, 0, 0); margin: 20px; border-radius: 20px;">
+            MORISTE
+
+
+        </button>
+        <button onclick="siguienteEscena('/index.html', '_blank')" style="font-size: 3.5em; padding: 10px 20px; background-color: #31201cbe; color: rgb(39, 39, 39); -webkit-text-stroke: 2px rgb(137, 138, 90)  ; font-weight: 600; margin: 20px; cursor: pointer; border-radius: 20px; font-family: Georgia, 'Times New Roman', Times, serif;" class="button2">
+            INICIO
+        </button>
+    </div>
+
+    <script>
+        // Contador de clics
+        let clickCount = 0;
+        const clicksToShowButtons = 3; // Número de clics después del cual se muestran los botones y se oculta el carrusel
+
+        // Detecta los clics en el control derecho del carrusel
+        document.querySelector('.right.carousel-control').addEventListener('click', incrementClickCount);
+
+        document.querySelector('.left.carousel-control').addEventListener('click', decrementClickCount);
+
+        function incrementClickCount() {
+            clickCount++;
+            if (clickCount === clicksToShowButtons) {
+                document.getElementById('myCarousel').style.display = 'none'; // Oculta el carrusel
+                document.getElementById('buttonsContainer').style.display = 'block'; // Muestra los botones
+            }
+        }
+
+        function decrementClickCount() {
+    // Resta el contador y se asegura de que no sea menor a 0
+    if (clickCount > 0) {
+        clickCount--;
+    }
+
+    // Si el contador vuelve a ser menor al límite, revierte los cambios
+    if (clickCount < clicksToShowButtons) {
+        document.getElementById('myCarousel').style.display = 'block';
+        document.getElementById('buttonsContainer').style.display = 'none';
+    }
+}
+
+        function toggleAudio() {
+    var audio = document.getElementById('miAudio');
+    var button = document.getElementById('audioButton');
+
+    if (audio.paused) {
+        audio.play();
+        button.innerHTML = "⏸️ Pausar";
+    } else {
+        audio.pause();
+        button.innerHTML = "▶️ Reproducir";
+    }
+}
+
+function adjustVolume(volume) {
+            var audio = document.getElementById('miAudio');
+            audio.volume = volume;
+        }
+
+        function siguienteEscena(url){
+            window.location.href = url
+        }
+    </script>
+</body>
+</html>
